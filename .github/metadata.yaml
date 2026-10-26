@@ -1,0 +1,11 @@
+# .github/metadata.yaml
+description: "Swift implementation of ECMA-427: Package-URL (PURL) specification."
+topics:
+  - standards
+  - ecma
+  - ecma-427
+  - purl
+  - sbom
+homepage: "https://swift-institute.org"
+readme:
+  family: E
