@@ -1,26 +1,28 @@
 import ECMA_427
 import Testing
 
-extension ECMA_427.PURL {
+enum `ECMA_427.PURL Tests` {}
+
+extension `ECMA_427.PURL Tests` {
     @Suite struct Test {
         @Suite struct Unit {}
         @Suite struct `Edge Case` {}
     }
 }
 
-extension ECMA_427.PURL.Test.Unit {
+extension `ECMA_427.PURL Tests`.Test.Unit {
 
-    @Test(arguments: ECMA_427.PURL.Test.Parse.cases)
-    func `every official parse case reads its components or fails`(example: ECMA_427.PURL.Test.Parse) throws {
+    @Test(arguments: `ECMA_427.PURL Tests`.Test.Parse.cases)
+    func `every official parse case reads its components or fails`(example: `ECMA_427.PURL Tests`.Test.Parse) throws {
         guard let expected = example.expected else {
             #expect(throws: ECMA_427.Error.self) { try ECMA_427.PURL(example.input) }
             return
         }
-        #expect(ECMA_427.PURL.Test.Components(try ECMA_427.PURL(example.input)) == expected)
+        #expect(`ECMA_427.PURL Tests`.Test.Components(try ECMA_427.PURL(example.input)) == expected)
     }
 
-    @Test(arguments: ECMA_427.PURL.Test.Build.cases)
-    func `every official build case builds its canonical string or fails`(example: ECMA_427.PURL.Test.Build) throws {
+    @Test(arguments: `ECMA_427.PURL Tests`.Test.Build.cases)
+    func `every official build case builds its canonical string or fails`(example: `ECMA_427.PURL Tests`.Test.Build) throws {
         guard let expected = example.expected else {
             #expect(throws: ECMA_427.Error.self) { try example.input.purl() }
             return
@@ -28,8 +30,8 @@ extension ECMA_427.PURL.Test.Unit {
         #expect(try example.input.purl().description == expected)
     }
 
-    @Test(arguments: ECMA_427.PURL.Test.Roundtrip.cases)
-    func `every official roundtrip case reaches its canonical string or fails`(example: ECMA_427.PURL.Test.Roundtrip) throws {
+    @Test(arguments: `ECMA_427.PURL Tests`.Test.Roundtrip.cases)
+    func `every official roundtrip case reaches its canonical string or fails`(example: `ECMA_427.PURL Tests`.Test.Roundtrip) throws {
         guard let expected = example.expected else {
             #expect(throws: ECMA_427.Error.self) { try ECMA_427.PURL(example.input) }
             return
@@ -63,7 +65,7 @@ extension ECMA_427.PURL.Test.Unit {
     }
 }
 
-extension ECMA_427.PURL.Test.`Edge Case` {
+extension `ECMA_427.PURL Tests`.Test.`Edge Case` {
 
     @Test
     func `slashes after the scheme are ignored and the scheme and type are case insensitive`() throws {

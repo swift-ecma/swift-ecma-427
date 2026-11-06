@@ -1,7 +1,7 @@
 import ECMA_427
 import Testing
 
-extension ECMA_427.PURL.Test {
+extension `ECMA_427.PURL Tests`.Test {
     struct Roundtrip: Sendable {
         let description: String
         let input: String
@@ -9,6 +9,6 @@ extension ECMA_427.PURL.Test {
     }
 }
 
-extension ECMA_427.PURL.Test.Roundtrip: CustomTestStringConvertible {
+extension `ECMA_427.PURL Tests`.Test.Roundtrip: CustomTestStringConvertible {
     var testDescription: String { description }
 }

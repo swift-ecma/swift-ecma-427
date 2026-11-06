@@ -1,6 +1,6 @@
 import ECMA_427
 
-extension ECMA_427.PURL.Test {
+extension `ECMA_427.PURL Tests`.Test {
     struct Components: Sendable, Equatable {
         let type: String?
         let namespace: String?
@@ -11,7 +11,7 @@ extension ECMA_427.PURL.Test {
     }
 }
 
-extension ECMA_427.PURL.Test.Components {
+extension `ECMA_427.PURL Tests`.Test.Components {
     init(_ purl: ECMA_427.PURL) {
         self.init(
             type: purl.type,
