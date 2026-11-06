@@ -3,6 +3,8 @@ extension ECMA_427 {
         public let type: String
         public let namespace: [String]
         public let name: String
+        // swift-linter:disable:next raw concept
+        // REASON: A package URL's version is whatever the package's ecosystem uses, such as a commit hash; looked at Version.Semantic and Version.Tools, which refuse those.
         public let version: String?
         public let qualifiers: [ECMA_427.PURL.Qualifier]
         public let subpath: [String]
@@ -11,6 +13,8 @@ extension ECMA_427 {
             type: String,
             namespace: [String] = [],
             name: String,
+            // swift-linter:disable:next raw concept
+            // REASON: A package URL's version is whatever the package's ecosystem uses, such as a commit hash; looked at Version.Semantic and Version.Tools, which refuse those.
             version: String? = nil,
             qualifiers: [ECMA_427.PURL.Qualifier] = [],
             subpath: [String] = []
